@@ -1,0 +1,77 @@
+Developing real-world programming assignments for CS1
+ACM SIGCSE BulletinVolume 38Issue 3September 2006 pp 158–162https://doi.org/10.1145/1140123.1140167
+https://dl.acm.org/doi/abs/10.1145/1140123.1140167?casa_token=2MOjlvTnKFcAAAAA:TMuhf6a6-e2Fq5fBrKQ4bc2WpX0DM2Dz62Jczowll8zGMBiaeWWSfn1R3bxcoaXpbRXf56DPAbNFzQ
+
+Using interview questions as short-term programming assignments in CS2
+https://analytics.drake.edu/~urness/research/download/CCSC2017Urness.pdf
+
+Using course-long programming projects in CS2
+SIGCSE '99: The proceedings of the thirtieth SIGCSE technical symposium on Computer science educationMarch 1999 Pages 43–47https://doi.org/10.1145/299649.299674
+
+The quest for excellence in designing CS1/CS2 assignments
+ACM SIGCSE BulletinVolume 28Issue 1March 1996 pp 319–323https://doi.org/10.1145/236462.236564
+
+Teaching algorithms
+ACM SIGACT NewsVolume 26Issue 4Dec. 1995 pp 51–59https://doi-org.ep.ituproxy.kb.dk/10.1145/219817.219828
+
+Nifty Assignments
+SIGCSE 2022: Proceedings of the 53rd ACM Technical Symposium on Computer Science Education V. 2March 2022 Pages 1067–1068https://doi-org.ep.ituproxy.kb.dk/10.1145/3478432.3499268
+
+Note to self: make assignments meaningful
+SIGCSE '07: Proceedings of the 38th SIGCSE technical symposium on Computer science educationMarch 2007 Pages 459–463https://doi-org.ep.ituproxy.kb.dk/10.1145/1227310.1227466
+
+Work in progress — Programming assignment summary for analysis, qualitative assessment and continuous improvement in CS1 — CS3
+2010 IEEE Frontiers in Education Conference (FIE) October 2010 doi: 10.1109/FIE.2010.5673488
+
+Assessment process for programming assignments
+IEEE International Conference on Advanced Learning Technologies, 2004. Proceedings. Aug 2004 doi: 10.1109/ICALT.2004.1357399
+
+Didactical Issues at the Interface of Mathematics and Computer Science
+Durand-Guerrier, V., Meyer, A., Modeste, S. (2019). Didactical Issues at the Interface of Mathematics and Computer Science. In: Hanna, G., Reid, D., de Villiers, M. (eds) Proof Technology in Mathematics Research and Teaching . Mathematics Education in the Digital Era, vol 14. Springer, Cham. https://doi-org.ep.ituproxy.kb.dk/10.1007/978-3-030-28483-1_6
+
+Introduction to the Theory of Didactical Situations (TDS)
+Artigue, M., Haspekian, M., Corblin-Lenfant, A. (2014). Introduction to the Theory of Didactical Situations (TDS). In: Bikner-Ahsbahs, A., Prediger, S. (eds) Networking of Theories as a Research Practice in Mathematics Education. Advances in Mathematics Education. Springer, Cham. https://doi-org.ep.ituproxy.kb.dk/10.1007/978-3-319-05389-9_4
+
+A model of students' combinatorial thiking
+Elise Lockwood,
+A model of students’ combinatorial thinking,
+The Journal of Mathematical Behavior,
+Volume 32, Issue 2,
+2013,
+Pages 251-265,
+ISSN 0732-3123,
+https://doi.org/10.1016/j.jmathb.2013.02.008.
+(https://www.sciencedirect.com/science/article/pii/S0732312313000230)
+Abstract: Combinatorial topics have become increasingly prevalent in K-12 and undergraduate curricula, yet research on combinatorics education indicates that students face difficulties when solving counting problems. The research community has not yet addressed students’ ways of thinking at a level that facilitates deeper understanding of how students conceptualize counting problems. To this end, a model of students’ combinatorial thinking was empirically and theoretically developed; it represents a conceptual analysis of students’ thinking related to counting and has been refined through analyzing students’ counting activity. In this paper, the model is presented, and relationships between formulas/expressions, counting processes, and sets of outcomes are elaborated. Additionally, the usefulness and potential explanatory power of the model are demonstrated through examining data both from a study the author conducted, and from existing literature on combinatorics education.
+Keywords: Combinatorics; Conceptual analysis; Discrete mathematics; Counting; Undergraduate mathematics education
+
+Planning readings: a comparative exploration of basic algorithms
+Justus H. Piater (2009) Planning readings: a comparative exploration of basic algorithms, Computer Science Education, 19:3, 179-192, DOI: 10.1080/08993400903255226 
+
+Students' Improper Proportional Reasoning: A result of the epistemological obstacle of "linearity"
+Modestina Modestou & Athanasios Gagatsis (2007) Students' Improper Proportional Reasoning: A result of the epistemological obstacle of “linearity”, Educational Psychology, 27:1, 75-92, DOI: 10.1080/01443410601061462 
+
+Recentering computer science
+Communications of the ACMVolume 48Issue 11November 2005 pp 15–19https://doi-org.ep.ituproxy.kb.dk/10.1145/1096000.1096018
+
+Sudoku - A little lesson in OOP
+ACM SIGCSE BulletinVolume 40Issue 2June 2008 pp 44–47https://doi-org.ep.ituproxy.kb.dk/10.1145/1383602.1383632
+
+Genetic operations to solve sudoku puzzles
+GECCO '10: Proceedings of the 12th annual conference companion on Genetic and evolutionary computationJuly 2010 Pages 2111–2112https://doi-org.ep.ituproxy.kb.dk/10.1145/1830761.1830887
+
+Genetic algorithms are very good solved sudoku generators
+GECCO '19: Proceedings of the Genetic and Evolutionary Computation Conference CompanionJuly 2019 Pages 49–50https://doi-org.ep.ituproxy.kb.dk/10.1145/3319619.3326793
+
+Sudoku: nifty tools
+Journal of Computing Sciences in CollegesVolume 23Issue 1October 2007 pp 109–110
+
+Experimental study on Sudoku
+Journal of Computing Sciences in CollegesVolume 28Issue 5May 2013 pp 244–251
+
+A project-based curriculum for algorithm design and np-completeness centered on the Sudoku problem
+Journal of Computing Sciences in CollegesVolume 32Issue 3January 2017 pp 110–118
+
+
+
+

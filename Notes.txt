@@ -1,0 +1,9 @@
+One Master Thesis
+
+Several part elements
+
+Try and obtain real life data for applicable assignments
+Use to test similarities/ differences - can be used to implement hierachy of difficulty.
+
+Ideally have two assignments that hold up on it's own. Have something 
+

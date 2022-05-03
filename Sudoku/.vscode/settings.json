@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Jacob\\OneDrive\\Skrivebord\\School\\TA\\ADS\\algs4.jar",
+        "sat4j-sat.jar"
+    ]
+}

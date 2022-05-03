@@ -1,0 +1,68 @@
+1 - Implement the Hyperref package for URLS (Done?)
+2 - Change website citation titles (Done?)
+3 - Explain the Applied Algorithms Course (AA), CC and ILO more clearly (nothing is necessarily trivial or explicit)
+4 - Remove first names when citing people, also where they teach
+5 - Put cication after name not randomly
+6 - Change citation of specific pages
+7 - Change quotation marks to italic emph{}, and try not to use quotation when improper
+8 - Write more assertively, state something and back it up, don't use arguably
+9 - Consider using more clear subsections
+10 - Table of content
+11 - Remove unnecessary historical stuff
+12 - Rewrite introduction to state intentions and findings
+13 - Rework frontpage
+14 - Rethink / Conceptualize the Narrative, what why how?
+15 - Be more positive :) Solutions, not problems
+16 - Cite textbook definitions by experts, not encyclopedias (Remove brittanica citation)
+17 - State by notes that it is a course website in references
+18 - Don't say things are inadvertantly :D
+19 - Try to find never article that addresses the paradigm / algortihmic approach instead of subject based
+
+To Do:
+
+Fact check all references (make sure DOI / https are available when citations are missing them)
+
+Structure:
+
+Introduction:
+- Applied Algorithms course at ITU
+- Aim to create a new mandatory assignment that can be used in the course
+How?
+- Investigate suitable curriculum new and current
+- How can / should an assignment be structured and presented
+- Based on research paper Sudoku was identified as potential candidate, can be argue this is a good fit?
+- Experiment conducted
+- Findings
+
+Building an assignment:
+- More detailed introduction of Applied Algorithms(AA)
+	- Intended Learning Outcomes
+	- Structure and prior iteration
+	- Prerequisites
+- Core Curriculum, 
+	- What is it
+	- What is relevant in terms of AA
+	- How can it be taught in an instance of AA
+- Assignments
+	- Properties of an assignments
+	Practicalities: size, duration, intended learning
+	(What would fit, seem thesiable in terms of AA)
+	Motivational: interesting, relateable, meaningful
+	(What does students want/ enjoy?
+	(Maybe a part of scientific experiments vs regular programming assignments)
+- Sudoku as an assignment
+	- What is a Sudoku?
+	- Why could it be used? (CC, AA, Nifty-ish topic)
+	- Has it been tried before? (Lobo and Baliga)
+	- Which approaches do we choose?
+- Sudoku as an experiment
+	- Structure and scalability of Sudoku
+	- Generating solveable Sudokus (size, single-solution)
+	- Bruteforce (Iterative vs Recursive)
+	- Algorithm X (Introduction of Exact cover problem)
+	- SAT-Solver (Introduction of CNF and reduction of Sudoku to CNF)
+	- Horse race experimentation
+- Proposed assignment for students
+	- TBD
+- Conclusion
+	- TBD
