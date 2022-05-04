@@ -36,15 +36,10 @@ public class SATSolver {
                 System.out.println("Unsatisfiable");
             }
         } catch (FileNotFoundException e) {
-            //TODO: handle exception
         } catch (ParseFormatException e) {
-
         } catch (IOException e) {
-
         } catch (ContradictionException e) {
-
         } catch (TimeoutException e) {
-
         }
     }
 
