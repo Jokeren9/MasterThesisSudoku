@@ -12,7 +12,7 @@ public class InputReader {
         
         try {
             String filePath = new File("").getAbsolutePath();
-            File file = new File(filePath + "\\generated_data\\19-03-2022 07.14\\1000 16x16 with solutions.csv");
+            File file = new File(filePath + "\\generated_data\\18-03-2022 13.40\\1000 9x9 with solutions.csv");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             int noRead = 0;
             while (noRead < noPuzzles) {

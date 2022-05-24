@@ -22,6 +22,7 @@ public class DancingLinks {
         for (List<DancingNode> solution : dlx.getSolutions()) {
             Puzzle p = new Puzzle(dlxToArray(solution), psize * psize);
             solvedPuzzles[i] = p;
+            puzzle = p.getPuzzle();
             i++;
             //printPuzzle();
         }
@@ -136,6 +137,7 @@ public class DancingLinks {
 
             int index = Integer.parseInt(answerNode.cNode.name);
             int cNumber = Integer.parseInt(answerNode.right.cNode.name);
+
             int number = (cNumber % psize) + 1;
 
             newpuzzle[index] = number;

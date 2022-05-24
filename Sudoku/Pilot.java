@@ -9,7 +9,7 @@ public class Pilot {
         
         //for (int k = 0; k < 10; k++) {
         int noPuzzles = 100;
-        int puzzleSize = 16;
+        int puzzleSize = 9;
         double sumTime = 0.00;
         //InputGenerator newPuzzles = new InputGenerator(puzzleSize, noPuzzles);
         //InputReader test = new InputReader(newPuzzles.getStringPuzzles());
@@ -33,6 +33,7 @@ public class Pilot {
             System.out.println(solved + ": In " + time + " milliseconds, having " + p.getClues() + " clues.");
             */
             //p.printPuzzle();
+            /*
             Instant start = Instant.now();
             CNFEncoder cnf = new CNFEncoder(p);
             SATSolver sat = new SATSolver(puzzleSize*puzzleSize*puzzleSize, cnf.getClauses());
@@ -40,6 +41,7 @@ public class Pilot {
             double time = Duration.between(start, end).toMillis();
             System.out.println(sat.getResult());
             System.out.println("SAT solved in: " + time);
+            */
             Instant start2 = Instant.now();
             DancingLinks solveDL = new DancingLinks(p);
             boolean solved2 = solveDL.Solved();

@@ -1,7 +1,0 @@
-Sudoku data obtained from: https://github.com/t-dillon/tdoku
-On 08/02/2022
-
-Original sources in data
-
-Sudoku.csv data obtained from: https://www.kaggle.com/rohanrao/sudoku/version/1
-On 13/02/2022
