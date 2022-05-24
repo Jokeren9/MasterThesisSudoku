@@ -8,21 +8,20 @@ public class DancingLinks {
     private int psize;
     private int bsize;
 
-    public DancingLinks(Puzzle p) {
+    public DancingLinks() {}
+
+    public boolean Solved(Puzzle p) {
         puzzle = p.getPuzzle();
         psize = p.getN();
         bsize = (int)Math.sqrt(psize);
-    }
-
-    public boolean Solved() {
         int[][] coverMatrix = coverMatrix(puzzle);
         DLX dlx = new DLX(coverMatrix);
         solvedPuzzles = new Puzzle[dlx.getSolutions().size()];
         int i = 0;
         for (List<DancingNode> solution : dlx.getSolutions()) {
-            Puzzle p = new Puzzle(dlxToArray(solution), psize * psize);
-            solvedPuzzles[i] = p;
-            puzzle = p.getPuzzle();
+            Puzzle sol = new Puzzle(dlxToArray(solution), psize * psize);
+            solvedPuzzles[i] = sol;
+            puzzle = sol.getPuzzle();
             i++;
             //printPuzzle();
         }

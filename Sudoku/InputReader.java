@@ -6,13 +6,13 @@ public class InputReader {
     private Puzzle[] puzzles;
     private SudokuMap sudokuMap = new SudokuMap();
 
-    public InputReader(int n) {
-        noPuzzles = n;
-        puzzles = new Puzzle[n];
+    public InputReader(int n, String path) {
+        noPuzzles = n*2;
+        puzzles = new Puzzle[noPuzzles];
         
         try {
             String filePath = new File("").getAbsolutePath();
-            File file = new File(filePath + "\\generated_data\\18-03-2022 13.40\\1000 9x9 with solutions.csv");
+            File file = new File(filePath + path);
             BufferedReader reader = new BufferedReader(new FileReader(file));
             int noRead = 0;
             while (noRead < noPuzzles) {
@@ -20,6 +20,9 @@ public class InputReader {
                 if (!read.startsWith("#")) {
                     String newRead = read.split(",")[0];
                     puzzles[noRead] = new Puzzle(newRead, sudokuMap);
+                    noRead++;
+                    String newReadSol = read.split(",")[2];
+                    puzzles[noRead] = new Puzzle(newReadSol, sudokuMap);
                     noRead++;
                 }
             }

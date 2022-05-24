@@ -3,22 +3,23 @@ public class Naive {
     private int[] puzzle;
     private int n;
 
-    public Naive(Puzzle p) {
+    public Naive() {}
+
+    public boolean Solved(Puzzle p) {
         puzzle = p.getPuzzle();
         n = p.getN();
+        if (Solve(puzzle)) {return true;};        
+        return false;
     }
 
-    public boolean Solved() {
+    public boolean Solve(int[] puzzle) {
         for (int i = 0; i < puzzle.length; i++) {
             if (puzzle[i] == 0) {
                 for (int j = 1; j <= n; j++) {
                     if (isValid(j, i)) {
                         puzzle[i] = j;
-                        if (Solved()) {
-                            return true;
-                        } else {
-                            puzzle[i] = 0;
-                        }
+                        Solve(puzzle);
+                        puzzle[i] = 0;
                     }
                 }
                 return false;

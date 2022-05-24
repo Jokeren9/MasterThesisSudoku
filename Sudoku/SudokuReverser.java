@@ -37,8 +37,8 @@ public class SudokuReverser {
             puzzle[removedIndex] = 0;
             clues--;
 
-            DancingLinks dl = new DancingLinks(new Puzzle(puzzle, clues));
-            dl.Solved();
+            DancingLinks dl = new DancingLinks();
+            dl.Solved(new Puzzle(puzzle, clues));
             solutions = dl.getSolvedPuzzles().length;
 
             if (solutions != 1) {
@@ -66,8 +66,8 @@ public class SudokuReverser {
             puzzle[index] = 0;
             clues--;
 
-            DancingLinks dl = new DancingLinks(new Puzzle(puzzle, clues));
-            dl.Solved();
+            DancingLinks dl = new DancingLinks();
+            dl.Solved(new Puzzle(puzzle, clues));
             solutions = dl.getSolvedPuzzles().length;
 
             if (solutions == 1 && failedTries < totalTries) {

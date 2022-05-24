@@ -1,87 +1,114 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.function.Consumer;
 
 public class Pilot {
+
+    private static String path;
     
     public static void main(String[] args) {
-        //InputGenerator ip = new InputGenerator(36, 100);
         
-        //for (int k = 0; k < 10; k++) {
+        for (int n = 3; n <= 6; n++) {
         int noPuzzles = 100;
-        int puzzleSize = 9;
-        double sumTime = 0.00;
-        //InputGenerator newPuzzles = new InputGenerator(puzzleSize, noPuzzles);
-        //InputReader test = new InputReader(newPuzzles.getStringPuzzles());
-        InputReader test = new InputReader(noPuzzles);
-        boolean withSolutions = true;
-        //InputReader test = new InputReader(noPuzzles);
-        int size = test.getPuzzles()[0].getN();
-        ArrayList<Puzzle> outputPuzzles = new ArrayList<Puzzle>();
-        for (int i = 0; i < noPuzzles; i++) {
+        int puzzleSize = n*n;
 
-            Puzzle p = test.getPuzzles()[i];
-            /*
-            p.printPuzzle();
-            Naive solveN = new Naive(p);
-            Instant start = Instant.now();
-            boolean solved = solveN.Solved();
-            Instant end = Instant.now();
-            double time = Duration.between(start, end).toMillis();
-            sumTime = sumTime + time;  
-            solveN.printPuzzle();
-            System.out.println(solved + ": In " + time + " milliseconds, having " + p.getClues() + " clues.");
-            */
-            //p.printPuzzle();
-            /*
-            Instant start = Instant.now();
-            CNFEncoder cnf = new CNFEncoder(p);
-            SATSolver sat = new SATSolver(puzzleSize*puzzleSize*puzzleSize, cnf.getClauses());
-            Instant end = Instant.now();
-            double time = Duration.between(start, end).toMillis();
-            System.out.println(sat.getResult());
-            System.out.println("SAT solved in: " + time);
-            */
-            Instant start2 = Instant.now();
-            DancingLinks solveDL = new DancingLinks(p);
-            boolean solved2 = solveDL.Solved();
-            //Puzzle[] solvedPuzzles = solveDL.getSolvedPuzzles();
-            //outputPuzzles.add(solvedPuzzles);
-            Puzzle s = solveDL.getSolvedPuzzles()[0];
-            Instant end2 = Instant.now();
-            double time2 = Duration.between(start2, end2).toMillis();
-            System.out.println("DLX solved in: " + time2);
-            //sumTime = sumTime + time2;
-            //solveDL.printPuzzle();
-            //System.out.println(solved2 + ": In " + time2 + " milliseconds, having " + p.getClues() + " clues.");
-            /*
-            int repeat = 0;
-            Puzzle bestPuzzle = s;
-            while (repeat < 1) {
-                SudokuReverser sr = new SudokuReverser(s);
-                Puzzle newP = sr.getBestOption();
-                //newP.printPuzzle();
-                if (newP.getClues() < bestPuzzle.getClues()) {
-                    bestPuzzle = newP;
-                }
-                repeat++;
-            }
-            outputPuzzles.add(bestPuzzle);
-            outputPuzzles.add(s);
-            //bestPuzzle.printPuzzle();
-            Instant end2 = Instant.now();
-            double time2 = Duration.between(start2, end2).toSeconds();
-            sumTime = sumTime + time2;
-            System.out.println("Run: " + i + " Clues found: " + bestPuzzle.getClues() + " In: " + time2 + " seconds");
-            */
+        switch (n) {
+            case 3:
+                path = "\\generated_data\\18-03-2022 13.40\\1000 9x9 with solutions.csv";
+                break;
+            case 4:
+                path = "\\generated_data\\19-03-2022 07.14\\1000 16x16 with solutions.csv";
+                break;
+
+            case 5:
+                path = "\\generated_data\\22-03-2022 09.30\\750 25x25 with solutions.csv";
+                break;
+
+            case 6:
+                path = "\\generated_data\\23-03-2022 10.47\\80 36x36 with solutions.csv";
+                break;
+            default:
+                break;
         }
-        /*
-        OutputGenerator op = new OutputGenerator(outputPuzzles, size, withSolutions);
-        op.writeCsv();
-        System.out.println("Run " + k + "/40 done in " + sumTime + " seconds.");
-        System.out.println("Expected completion: " + (((40 - k) * sumTime) / 60) + " minutes");
-        */
-        //}
-        
+
+        InputReader input = new InputReader(noPuzzles, path);
+        runBenchmark(input, noPuzzles, n);
+        }
+    }
+
+    public static double measure(Runnable f) {
+        Instant start = Instant.now();
+        f.run();
+        Instant end = Instant.now();
+        return Duration.between(start, end).toNanos()/1e9;
+    }
+
+    public static double[][] benchmark(Consumer<Puzzle> f, Puzzle[] args, int N, boolean skip) {
+        int m = args.length;
+        double[][] M = new double[m][N];
+        for (int i = 0; i < m; i++) {
+            if (skip && i%2 == 1) {
+                for (int j = 0; j < N; j++) {
+                    Puzzle arg = new Puzzle(args[i].getPuzzle(), args[i].getN());
+                    M[i][j] = measure(() -> f.accept(arg));
+                    System.out.println("Puzzle " + i + " Done in " + M[i][j] + " seconds");
+                }
+            }
+        }
+        double[][] R = new double[m][2];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < N; j++) {
+                R[i][0] += M[i][j];
+            }
+            R[i][0] /= N;
+            for (int j = 0; j < N; j++) {
+                double x = M[i][j] - R[i][0];
+                R[i][1] += x*x;
+            }
+            R[i][1] = Math.sqrt(R[i][1] / (N-1));
+        }
+        return R;
+    }
+
+    public static void runBenchmark(InputReader input, int noPuzzles, int n) {
+        int N = 5;
+        int[] ns = new int[noPuzzles];
+        Puzzle[] args1 = input.getPuzzles();
+        for (int i = 0; i < noPuzzles; i++) {
+            ns[i] = input.getPuzzles()[i].getClues();
+        }
+        boolean skip = false;
+        if (n > 3) {skip = true;};
+
+        double[][] resNaive, resSAT, resDLX;
+        resNaive = benchmark(new Naive()::Solved, args1, N, skip);
+        skip = false;
+        resSAT = benchmark(new CNFEncoder()::Solved, args1, N, skip);
+        resDLX = benchmark(new DancingLinks()::Solved, args1, N, skip);
+        writeCsv(ns, resNaive, "experiment_data/Naive_n=" + n + ".csv");
+        writeCsv(ns, resSAT, "experiment_data/SAT_n=" + n + ".csv");
+        writeCsv(ns, resDLX, "experiment_data/DLX_n=" + n + ".csv");
+        //writeLatexTabular(ns, resClassic, path + "/classic_tabular_" + comment + ".tex");
+    }
+
+    public static void writeCsv(int[] ns, double[][] res, String filename) {
+        File f = new File(filename);
+        try (PrintWriter pw = new PrintWriter(f);) {
+            for (int i = 0; i < ns.length; i++) {
+                String[] fields = new String[] {
+                    Integer.toString(ns[i]),
+                    String.format("%.17f", res[i][0]),
+                    String.format("%.17f", res[i][1])
+                };
+                pw.println(String.join(",",fields));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
