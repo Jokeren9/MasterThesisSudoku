@@ -18,7 +18,7 @@ public class CNFEncoder {
     }
 
     public ArrayList<int[]> encode(Puzzle p) {
-
+        clauses = new ArrayList<int[]>();
         nsize = p.getN();
         bsize = (int)Math.sqrt(nsize);
 

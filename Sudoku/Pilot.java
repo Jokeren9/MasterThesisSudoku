@@ -11,7 +11,7 @@ public class Pilot {
     
     public static void main(String[] args) {
         
-        for (int n = 6; n <= 6; n++) {
+        for (int n = 3; n <= 6; n++) {
         int noPuzzles = 50;
         int puzzleSize = n*n;
 
