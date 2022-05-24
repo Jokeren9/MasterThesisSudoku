@@ -27,7 +27,6 @@ public class DancingLinks {
         if (i > 0) {
             return true;
         }
-
         return false;
     }
 

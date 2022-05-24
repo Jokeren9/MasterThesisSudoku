@@ -9,8 +9,7 @@ public class CNFEncoder {
     public CNFEncoder() {}
 
     public boolean Solved(Puzzle p) {
-        clauses = new ArrayList<int[]>();
-        encode(p);
+        clauses = encode(p);
         int size = p.getN();
         int maxvar = size*size*size;
         SATSolver sat = new SATSolver(maxvar, clauses);
@@ -18,7 +17,7 @@ public class CNFEncoder {
         return false;
     }
 
-    public void encode(Puzzle p) {
+    public ArrayList<int[]> encode(Puzzle p) {
 
         nsize = p.getN();
         bsize = (int)Math.sqrt(nsize);
@@ -70,7 +69,7 @@ public class CNFEncoder {
                 }
             }
         }
-
+        return clauses;
     }
 
     private int getVN(int arrayIndex, int value) {

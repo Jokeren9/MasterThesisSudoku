@@ -8,7 +8,7 @@ public class Naive {
     public boolean Solved(Puzzle p) {
         puzzle = p.getPuzzle();
         n = p.getN();
-        if (Solve(puzzle)) {System.out.println("Solved"); return true;};        
+        if (Solve(puzzle)) {return true;};        
         return false;
     }
 

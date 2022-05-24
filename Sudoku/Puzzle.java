@@ -18,18 +18,6 @@ public class Puzzle {
                 clues++;
             }
             position++;
-            /*
-            if (Char == 48 || Char == 46) {
-                puzzle[position] = 0;
-            } else if (Char < 65) {
-                puzzle[position] = Char-48;
-                clues++;
-            } else {
-                puzzle[position] = Char-55;
-                clues++;
-            }
-            position++;
-            */
         }
     }
 

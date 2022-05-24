@@ -11,7 +11,7 @@ public class Pilot {
     
     public static void main(String[] args) {
         
-        for (int n = 3; n <= 6; n++) {
+        for (int n = 6; n <= 6; n++) {
         int noPuzzles = 50;
         int puzzleSize = n*n;
 
@@ -82,12 +82,14 @@ public class Pilot {
             ns[i] = input.getPuzzles()[i].getClues();
         }
         boolean run = true;
-        if (n > 3) {run = false;};
+        if (n > 3) {run = false;}
 
         double[][] resNaive, resSAT, resDLX;
         resNaive = benchmark(new Naive()::Solved, args1, N, run);
         run = true;
+        if (n > 4) {run = false;}
         resSAT = benchmark(new CNFEncoder()::Solved, args1, N, run);
+        run = true;
         resDLX = benchmark(new DancingLinks()::Solved, args1, N, run);
         writeCsv(ns, resNaive, "experiment_data/Naive_n=" + n + ".csv");
         writeCsv(ns, resSAT, "experiment_data/SAT_n=" + n + ".csv");
