@@ -3,8 +3,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 public class Pilot {
@@ -14,7 +12,7 @@ public class Pilot {
     public static void main(String[] args) {
         
         for (int n = 3; n <= 6; n++) {
-        int noPuzzles = 100;
+        int noPuzzles = 50;
         int puzzleSize = n*n;
 
         switch (n) {
@@ -37,6 +35,7 @@ public class Pilot {
         }
 
         InputReader input = new InputReader(noPuzzles, path);
+        noPuzzles = 100;
         runBenchmark(input, noPuzzles, n);
         }
     }
@@ -48,11 +47,11 @@ public class Pilot {
         return Duration.between(start, end).toNanos()/1e9;
     }
 
-    public static double[][] benchmark(Consumer<Puzzle> f, Puzzle[] args, int N, boolean skip) {
+    public static double[][] benchmark(Consumer<Puzzle> f, Puzzle[] args, int N, boolean run) {
         int m = args.length;
         double[][] M = new double[m][N];
         for (int i = 0; i < m; i++) {
-            if (skip && i%2 == 1) {
+            if (run) {
                 for (int j = 0; j < N; j++) {
                     Puzzle arg = new Puzzle(args[i].getPuzzle(), args[i].getN());
                     M[i][j] = measure(() -> f.accept(arg));
@@ -82,14 +81,14 @@ public class Pilot {
         for (int i = 0; i < noPuzzles; i++) {
             ns[i] = input.getPuzzles()[i].getClues();
         }
-        boolean skip = false;
-        if (n > 3) {skip = true;};
+        boolean run = true;
+        if (n > 3) {run = false;};
 
         double[][] resNaive, resSAT, resDLX;
-        resNaive = benchmark(new Naive()::Solved, args1, N, skip);
-        skip = false;
-        resSAT = benchmark(new CNFEncoder()::Solved, args1, N, skip);
-        resDLX = benchmark(new DancingLinks()::Solved, args1, N, skip);
+        resNaive = benchmark(new Naive()::Solved, args1, N, run);
+        run = true;
+        resSAT = benchmark(new CNFEncoder()::Solved, args1, N, run);
+        resDLX = benchmark(new DancingLinks()::Solved, args1, N, run);
         writeCsv(ns, resNaive, "experiment_data/Naive_n=" + n + ".csv");
         writeCsv(ns, resSAT, "experiment_data/SAT_n=" + n + ".csv");
         writeCsv(ns, resDLX, "experiment_data/DLX_n=" + n + ".csv");

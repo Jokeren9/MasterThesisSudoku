@@ -23,11 +23,12 @@ public class DancingLinks {
             solvedPuzzles[i] = sol;
             puzzle = sol.getPuzzle();
             i++;
-            //printPuzzle();
         }
-        //dlxToArray(dlx.getSolution());
+        if (i > 0) {
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
     private int[][] coverMatrix(int[] puzzle) {

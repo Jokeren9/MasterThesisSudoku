@@ -4,11 +4,12 @@ public class CNFEncoder {
     
     private int nsize;
     private int bsize;
-    private ArrayList<int[]> clauses = new ArrayList<int[]>();
+    private ArrayList<int[]> clauses;
 
     public CNFEncoder() {}
 
     public boolean Solved(Puzzle p) {
+        clauses = new ArrayList<int[]>();
         encode(p);
         int size = p.getN();
         int maxvar = size*size*size;

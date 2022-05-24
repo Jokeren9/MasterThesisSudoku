@@ -8,7 +8,7 @@ public class Naive {
     public boolean Solved(Puzzle p) {
         puzzle = p.getPuzzle();
         n = p.getN();
-        if (Solve(puzzle)) {return true;};        
+        if (Solve(puzzle)) {System.out.println("Solved"); return true;};        
         return false;
     }
 
@@ -18,8 +18,11 @@ public class Naive {
                 for (int j = 1; j <= n; j++) {
                     if (isValid(j, i)) {
                         puzzle[i] = j;
-                        Solve(puzzle);
-                        puzzle[i] = 0;
+                        if (!Solve(puzzle)) {
+                            puzzle[i] = 0;
+                        } else { 
+                            return true;
+                        }     
                     }
                 }
                 return false;
