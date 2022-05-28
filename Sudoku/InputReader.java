@@ -7,7 +7,7 @@ public class InputReader {
     private SudokuMap sudokuMap = new SudokuMap();
 
     public InputReader(int n, String path) {
-        noPuzzles = n*2;
+        noPuzzles = n;
         puzzles = new Puzzle[noPuzzles];
         
         try {
@@ -21,9 +21,12 @@ public class InputReader {
                     String newRead = read.split(",")[0];
                     puzzles[noRead] = new Puzzle(newRead, sudokuMap);
                     noRead++;
-                    String newReadSol = read.split(",")[2];
+                     //Used to extract solved instances as every second puzzle
+                    /*
+                     String newReadSol = read.split(",")[2];
                     puzzles[noRead] = new Puzzle(newReadSol, sudokuMap);
                     noRead++;
+                    */
                 }
             }
             reader.close();

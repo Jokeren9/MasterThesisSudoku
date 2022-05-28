@@ -29,11 +29,11 @@ public class SATSolver {
             IProblem problem = reader.parseInstance(file);
             if (problem.isSatisfiable()) {
                 satisfiable = true;
-                System.out.println("Satisfiable");
+                //System.out.println("Satisfiable");
                 reader.decode(problem.model(),out);
             } else {
                 satisfiable = false;
-                System.out.println("Unsatisfiable");
+                //System.out.println("Unsatisfiable");
             }
         } catch (FileNotFoundException e) {
         } catch (ParseFormatException e) {
@@ -57,10 +57,10 @@ public class SATSolver {
             IProblem problem = solver;
             if (problem.isSatisfiable()) {
                 satisfiable = true;
-                System.out.println("Satisfiable");
+                //System.out.println("Satisfiable");
             } else {
                 satisfiable = false;
-                System.out.println("Unsatisfiable");
+                //System.out.println("Unsatisfiable");
             }
         } catch (Exception e) {
             System.out.println("Error");

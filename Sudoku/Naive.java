@@ -26,6 +26,15 @@ public class Naive {
                     }
                 }
                 return false;
+            } else {
+                int v = puzzle[i];
+                puzzle[i] = 0;
+                if (!isValid(v,i)) {
+                    puzzle[i] = v;
+                    return false;
+                } else {
+                    puzzle[i] = v;
+                }
             }
         }
         return true;
