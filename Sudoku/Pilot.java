@@ -10,8 +10,28 @@ public class Pilot {
     private static String path;
     
     public static void main(String[] args) {
-        setupCountBenchmark();
+        //SystemInfo();
+        //setupCountBenchmark();
+        //setupIncreasingCluesBenchmark();
+        //setupTimeBenchmark();
     }
+
+    public static void SystemInfo() {
+        System.out.printf("# OS:   %s; %s; %s%n", 
+                          System.getProperty("os.name"), 
+                          System.getProperty("os.version"), 
+                          System.getProperty("os.arch"));
+        System.out.printf("# JVM:  %s; %s%n", 
+                          System.getProperty("java.vendor"), 
+                          System.getProperty("java.version"));
+        // The processor identifier works only on MS Windows:
+        System.out.printf("# CPU:  %s; %d \"cores\"%n", 
+                          System.getenv("PROCESSOR_IDENTIFIER"),
+                          Runtime.getRuntime().availableProcessors());
+        java.util.Date now = new java.util.Date();
+        System.out.printf("# Date: %s%n", 
+          new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(now));
+      }
 
     public static void setupCountBenchmark() {
         Puzzle[] args = new Puzzle[4];
@@ -48,6 +68,15 @@ public class Pilot {
         }
         //writePuzzleLatex(args, "Puzzle_");
         runCountBenchmark(args, 30);
+    }
+
+    public static void setupIncreasingCluesBenchmark() {
+        int n = 3;
+        int noPuzzles = 65;
+
+        path = "\\scraped_data\\17clueReverse.txt";
+        InputReader input = new InputReader(noPuzzles, path);
+        runTimeBenchmark(input, noPuzzles, n);
     }
 
     public static void setupTimeBenchmark() {
